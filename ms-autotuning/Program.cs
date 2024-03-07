@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ms_autotuning.Data;
+using ms_autotuning.Infrastructior.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ms_autotuning.Models;
+using ms_autotuning.Core.Models;
 using System.Diagnostics;
 
 namespace ms_autotuning.Controllers

@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <RootNamespace>ms_autotuning.Infrastructior</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-ms_autotuning-b18d3954-d3c5-4e23-a1b1-51398c6c41da</UserSecretsId>
-    <RootNamespace>ms_autotuning</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,12 +12,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.26" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.26" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.26" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ms-autotuning.Core\ms-autotuning.Core.csproj" />
-    <ProjectReference Include="..\ms-autotuning.Infrastructior\ms-autotuning.Infrastructior.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.26">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

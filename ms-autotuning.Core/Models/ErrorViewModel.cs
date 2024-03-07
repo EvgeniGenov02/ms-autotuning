@@ -1,4 +1,4 @@
-namespace ms_autotuning.Models
+namespace ms_autotuning.Core.Models
 {
     public class ErrorViewModel
     {

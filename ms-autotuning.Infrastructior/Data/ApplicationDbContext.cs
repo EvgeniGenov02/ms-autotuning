@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ms_autotuning.Data
+namespace ms_autotuning.Infrastructior.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

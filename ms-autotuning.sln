@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ms-autotuning", "ms-autotuning\ms-autotuning.csproj", "{DC3D941D-6FEB-4A66-ADEA-68E633A5183C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ms-autotuning.Core", "ms-autotuning.Core\ms-autotuning.Core.csproj", "{D0496BC6-8333-4DE9-9A34-07097D274EC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ms-autotuning.Infrastructior", "ms-autotuning.Infrastructior\ms-autotuning.Infrastructior.csproj", "{832824A9-66D4-41C2-9931-58CFAFC7EFFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DC3D941D-6FEB-4A66-ADEA-68E633A5183C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC3D941D-6FEB-4A66-ADEA-68E633A5183C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC3D941D-6FEB-4A66-ADEA-68E633A5183C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0496BC6-8333-4DE9-9A34-07097D274EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0496BC6-8333-4DE9-9A34-07097D274EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0496BC6-8333-4DE9-9A34-07097D274EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0496BC6-8333-4DE9-9A34-07097D274EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832824A9-66D4-41C2-9931-58CFAFC7EFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832824A9-66D4-41C2-9931-58CFAFC7EFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832824A9-66D4-41C2-9931-58CFAFC7EFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832824A9-66D4-41C2-9931-58CFAFC7EFFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
