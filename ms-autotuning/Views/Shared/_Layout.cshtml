@@ -33,6 +33,9 @@
     </div>
 
     <footer class="border-top footer text-muted">
+
+        @await Component.InvokeAsync(nameof(ms_autotuning.Components.ContactForm))
+
         <div class="container">
             &copy; @DateTime.Now.Year - ms_autotuning
         </div>
