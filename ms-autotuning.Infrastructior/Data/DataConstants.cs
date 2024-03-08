@@ -45,5 +45,14 @@
             public const int DescriptionMaxLength = 1500;
             public const int DescriptionMinLength = 10;
         }
+
+        public static class ApplicationUserConstants
+        {
+            public const int FirstNameMaxLength = 100;
+            public const int FirstNameLength = 2;
+
+            public const int LastNameMaxLength = 100;
+            public const int LastNameMinLength = 2;
+        }
     }
 }

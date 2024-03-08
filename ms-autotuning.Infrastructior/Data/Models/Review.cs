@@ -29,7 +29,7 @@ namespace ms_autotuning.Infrastructior.Data.Models
 
         [Required]
         [ForeignKey(nameof(UserId))]
-        public IdentityUser User { get; set; } = null!;
+        public ApplicationUser User { get; set; } = null!;
 
         [Required]
         [MaxLength(DataConstants.ReviewConstants.RatingMax)]

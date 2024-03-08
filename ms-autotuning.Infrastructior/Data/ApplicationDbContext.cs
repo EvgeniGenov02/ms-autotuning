@@ -4,7 +4,7 @@ using ms_autotuning.Infrastructior.Data.Models;
 
 namespace ms_autotuning.Infrastructior.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

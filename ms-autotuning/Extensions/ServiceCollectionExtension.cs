@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ms_autotuning.Infrastructior.Data;
+using ms_autotuning.Infrastructior.Data.Models;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -23,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationIdentity(this IServiceCollection services, IConfiguration config)
         {
             services
-             .AddDefaultIdentity<IdentityUser>(options =>
+             .AddDefaultIdentity<ApplicationUser>(options =>
              {
                  options.SignIn.RequireConfirmedAccount = false;
                  options.Password.RequireDigit = false;

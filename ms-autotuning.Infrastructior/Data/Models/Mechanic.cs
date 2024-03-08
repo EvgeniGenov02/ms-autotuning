@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ms_autotuning.Infrastructior.Data.Models
 {
@@ -11,7 +12,5 @@ namespace ms_autotuning.Infrastructior.Data.Models
         [MaxLength(DataConstants.MechanicConstants.NameMaxLength)]
         public string Name { get; set; } = null!;
 
-        [Required]
-        public string User { get; set; } = null!;
     }
 }
