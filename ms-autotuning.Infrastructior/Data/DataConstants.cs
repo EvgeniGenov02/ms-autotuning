@@ -16,7 +16,7 @@
 
         public static class PromotionConstants
         {
-             public const int DescriptionMaxLength = 1000;
+            public const int DescriptionMaxLength = 1000;
         }
 
         public static class ReservationConstants
@@ -32,7 +32,7 @@
         public static class ReviewConstants
         {
             public const int Feedback = 1000;
-            
+
             public const int RatingMax = 5;
             public const int RatingMin = 0;
         }

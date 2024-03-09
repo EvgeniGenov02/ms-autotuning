@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ms_autotuning.Infrastructior.Data;
 using ms_autotuning.Infrastructior.Data.Models;
 
