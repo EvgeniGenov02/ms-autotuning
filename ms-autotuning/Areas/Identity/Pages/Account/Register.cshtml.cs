@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using ms_autotuning.Infrastructior.Data;
 using ms_autotuning.Infrastructior.Data.Models;
 
 namespace ms_autotuning.Areas.Identity.Pages.Account
@@ -92,6 +93,19 @@ namespace ms_autotuning.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "First Name")]
+            [StringLength(DataConstants.ApplicationUserConstants.FirstNameMaxLength
+             ,MinimumLength = DataConstants.ApplicationUserConstants.FirstNameMinLength)]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(DataConstants.ApplicationUserConstants.LastNameMaxLength
+              , MinimumLength = DataConstants.ApplicationUserConstants.LastNameMinLength)]
+            public string LastName { get; set; }
+
         }
 
 
@@ -107,7 +121,13 @@ namespace ms_autotuning.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                var user = new ApplicationUser()
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName
+                };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
