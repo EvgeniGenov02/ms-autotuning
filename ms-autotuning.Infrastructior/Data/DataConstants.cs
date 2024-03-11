@@ -22,7 +22,7 @@
         public static class ReservationConstants
         {
             public const int DescriptionMaxLength = 1000;
-            public const int PhoneNumber = 20;
+            public const int PhoneNumber = 15;
 
             public const int UserNameMaxLength = 50;
             public const int UserNameMinLength = 2;

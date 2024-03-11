@@ -57,9 +57,9 @@ namespace ms_autotuning.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Phone]
-            [StringLength(100,
+            [StringLength(15,
             ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", 
-            MinimumLength = 2)]
+            MinimumLength = 4)]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
         }

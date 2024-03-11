@@ -20,6 +20,7 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public string Description { get; set; } = string.Empty;
 
         [Required]
+        [Phone]
         [MaxLength(DataConstants.ReservationConstants.PhoneNumber)]
         public string PhoneNumber { get; set; } = null!;
 
