@@ -8,3 +8,16 @@
 
 <hr />
 
+<div class="text-center row">
+    @foreach (var mechanic in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h4 class="card-title mt-1">@mechanic.FirstName</h4>
+                <h5 class="card-title mt-1">@mechanic.LastName</h5>
+                <h5 class="card-title mt-1">@mechanic.Email</h5>
+            </div>
+            <a asp-controller="Administrator" asp-action="DeleteMechanic" asp-route-id="@mechanic.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Mechanic</a>
+        </div>
+    }
+</div>

@@ -8,5 +8,10 @@ namespace ms_autotuning.Core.Models.AdministratorViewsModels
 {
     public class EditServicesFormModel
     {
+        public string Name { get; set; } = null!;
+
+        public decimal Price { get; set; }
+
+        public string Description { get; set; } = string.Empty;
     }
 }
