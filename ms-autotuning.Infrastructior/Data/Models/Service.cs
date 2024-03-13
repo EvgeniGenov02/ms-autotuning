@@ -16,6 +16,6 @@ namespace ms_autotuning.Infrastructior.Data.Models
 
         [Required]
         [MaxLength(DataConstants.ServiceConstants.DescriptionMaxLength)]
-        public int Description { get; set; }
+        public string Description { get; set; } = string.Empty;
     }
 }
