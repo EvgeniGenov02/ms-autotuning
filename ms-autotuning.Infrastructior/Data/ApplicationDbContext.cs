@@ -10,6 +10,7 @@ namespace ms_autotuning.Infrastructior.Data
             : base(options)
         {
         }
+
         
         public DbSet<Administrator>? Administrators { get; set; }
         public DbSet<Mechanic>? Mechanics { get; set; }
@@ -17,7 +18,6 @@ namespace ms_autotuning.Infrastructior.Data
         public DbSet<Reservation>? Reservations { get; set; }
         public DbSet<Review>? Reviews { get; set; }
         public DbSet<Service>? Services { get; set; }
-        public DbSet<ReservationMechanic>? ReservationsMechanics { get; set; }
 
     }
 }

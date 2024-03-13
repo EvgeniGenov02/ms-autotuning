@@ -33,7 +33,6 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public string UserName { get; set; } = null!;
 
         [Required]
-        [Comment("User Id")]
         public string UserId { get; set; } = null!;
 
         [Required]
