@@ -18,5 +18,26 @@ namespace ms_autotuning.Controllers
             var model = new List<OrdersViewModel>();
             return View(model);
         }
+
+        //Get Order
+        [HttpPost]
+        public async Task<IActionResult> GetOrder(OrdersViewModel order)
+        {
+            return RedirectToAction(nameof(AllOrders));
+        }
+
+        //Delete Order
+        [HttpPost]
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            return RedirectToAction(nameof(AllOrders));
+        }
+
+        //Delete Order
+        [HttpPost]
+        public async Task<IActionResult> DeleteReservation(int id)
+        {
+            return RedirectToAction(nameof(AllReservations));
+        }
     }
 }

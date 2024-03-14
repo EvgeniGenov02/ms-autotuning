@@ -7,3 +7,19 @@
 <h2 class="text-center">@ViewData["Title"]</h2>
 
 <hr />
+
+<div class="text-center row">
+    @foreach (var order in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h4 class="card-title mt-1">Услуга: @order.Service.Name</h4>
+                <h5 class="card-title mt-1">Име на клиента: @order.UserName</h5>
+                <h5 class="card-title mt-1">Телефон: @order.PhoneNumber</h5>
+                <h5 class="card-title mt-1">Имейл: @order.Email</h5>
+                <p class="card-title mt-1">Описатие: @order.Description</p>
+            </div>
+            <a asp-controller="Mechanic" asp-action="CompleteOrder" asp-route-id="@order.Id" class="btn mb-2 w-100 p-3 fw-bold">Complete Order</a>
+        </div>
+    }
+</div>

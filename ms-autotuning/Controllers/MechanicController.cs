@@ -18,5 +18,12 @@ namespace ms_autotuning.Controllers
         {
             return RedirectToAction(nameof(MechanicGraph));
         }
+
+        [HttpPost]
+        //Complete Order
+        public async Task<IActionResult> CompleteOrder(int id)
+        {
+            return RedirectToAction(nameof(MechanicGraph));
+        }
     }
 }
