@@ -9,8 +9,9 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.MechanicConstants.NameMaxLength)]
-        public string Name { get; set; } = null!;
+        [Phone]
+        [MaxLength(DataConstants.MechanicConstants.PhoneNumberMaxLength)]
+        public string PhoneNumber { get; set; } = null!;
 
         [Required]
         public string UserId { get; set; } = null!;

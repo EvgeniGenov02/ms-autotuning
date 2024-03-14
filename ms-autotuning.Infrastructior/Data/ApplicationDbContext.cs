@@ -18,6 +18,5 @@ namespace ms_autotuning.Infrastructior.Data
         public DbSet<Reservation>? Reservations { get; set; }
         public DbSet<Review>? Reviews { get; set; }
         public DbSet<Service>? Services { get; set; }
-
     }
 }

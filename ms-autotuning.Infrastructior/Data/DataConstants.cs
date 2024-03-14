@@ -6,12 +6,16 @@
         {
             public const int NameMaxLength = 50;
             public const int NameMinLength = 2;
+
+            public const int PhoneNumberMaxLength = 15;
         }
 
         public static class MechanicConstants
         {
             public const int NameMaxLength = 50;
             public const int NameMinLength = 2;
+
+            public const int PhoneNumberMaxLength = 15;
         }
 
         public static class PromotionConstants
@@ -23,9 +27,6 @@
         {
             public const int DescriptionMaxLength = 1000;
             public const int PhoneNumber = 15;
-
-            public const int UserNameMaxLength = 50;
-            public const int UserNameMinLength = 2;
         }
 
 
@@ -54,5 +55,6 @@
             public const int LastNameMaxLength = 100;
             public const int LastNameMinLength = 2;
         }
+
     }
 }

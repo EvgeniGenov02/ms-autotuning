@@ -24,13 +24,6 @@ namespace ms_autotuning.Infrastructior.Data.Models
         [MaxLength(DataConstants.ReservationConstants.PhoneNumber)]
         public string PhoneNumber { get; set; } = null!;
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; } = null!;
-
-        [Required]
-        [MaxLength(DataConstants.ReservationConstants.UserNameMaxLength)]
-        public string UserName { get; set; } = null!;
 
         [Required]
         public string UserId { get; set; } = null!;
