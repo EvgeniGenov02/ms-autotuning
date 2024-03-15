@@ -19,6 +19,29 @@ namespace ms_autotuning.Controllers
             return RedirectToAction("Service", "AllServices");
         }
 
+        //Delate Review
+        [HttpPost]
+        public async Task<IActionResult> DelateReview(int id)
+        {
+            return RedirectToAction("Service", "AllReviews");
+        }
+
+
+        //Delate Service
+        [HttpPost]
+        public async Task<IActionResult> DelateService(int id)
+        {
+            return RedirectToAction("Service", "AllServices");
+        }
+
+
+        //Delate Sale
+        [HttpPost]
+        public async Task<IActionResult> DelateSale(int id)
+        {
+            return RedirectToAction("Service", "AllSales");
+        }
+
         //Add Order
         public async Task<IActionResult> AddService()
         {

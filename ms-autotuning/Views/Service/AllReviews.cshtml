@@ -6,3 +6,20 @@
 
 <h2 class="text-center">@ViewData["Title"]</h2>
 
+<hr/>
+
+<div class="text-center row">
+
+    @foreach (var review in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h4 class="card-title mt-1">@review.Services.Name</h4>
+                <h5 class="card-title mt-1">@review.Rating</h5>
+                <p class="card-title mt-1">@review.Feedback</p>
+            </div>
+            <a asp-controller="Administrator" asp-action="DelateReview" asp-route-id="@review.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delate Review</a>
+        </div>
+    }
+
+</div>
