@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ms_autotuning.Core.Contracts;
+using ms_autotuning.Core.Services;
 using ms_autotuning.Infrastructior.Data;
 using ms_autotuning.Infrastructior.Data.Models;
 
@@ -8,6 +10,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<IAdministratorService, AdministratorService>();
+            services.AddScoped<IServiceService, ServiceService>();
             return services;
         }
 

@@ -17,9 +17,16 @@
                 <h5 class="card-title mt-1">@service.Price</h5>
                 <p class="card-title mt-1">@service.Description</p>
             </div>
-            <a asp-controller="Administrator" asp-action="EditService" asp-route-id="@service.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit Service</a>
-            <a asp-controller="Administrator" asp-action="DelateService" asp-route-id="@service.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delate Service</a>
 
+            <form asp-controller="Administrator" asp-action="EditService" method="post">
+                <input type="hidden" name="id" value="@service.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit Service</button>
+            </form>
+
+            <form asp-controller="Administrator" asp-action="DelateService" method="post">
+                <input type="hidden" name="id" value="@service.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delate Service</button>
+            </form>
         </div>
     }
 </div>

@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Differencing;
+using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
+using ms_autotuning.Core.Services;
 using ms_autotuning.Infrastructior.Data.Models;
 
 namespace ms_autotuning.Controllers
 {
     public class AdministratorController : Controller
     {
+        private readonly IAdministratorService _administratorService;
+        public AdministratorController(IAdministratorService administratorService)
+        {
+            _administratorService = administratorService;
+        }
+
         //Edit Service
         public async Task<IActionResult> EditService(int id)
         {
@@ -31,7 +39,8 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> DelateService(int id)
         {
-            return RedirectToAction("Service", "AllServices");
+            await _administratorService.DelateService(id);
+            return RedirectToAction("AllServices", "Service");
         }
 
 
@@ -52,6 +61,7 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddService(AddServiceFormModel model)
         {
+            await _administratorService.AddService(model);
             return RedirectToAction("AllServices", "Service");
         }
 
@@ -65,6 +75,8 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMechanic(MechanicFormModel model)
         {
+            await _administratorService.AddMechanic(model);
+
             return RedirectToAction(nameof(AllMechanics));
         }
 
@@ -72,7 +84,7 @@ namespace ms_autotuning.Controllers
 
         public async Task<IActionResult> AllMechanics()
         {
-            var models = new List<MechanicsViewModel>();
+            var models =await _administratorService.AllMechanics();
             return View(models);
         }
 
@@ -80,6 +92,7 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteMechanic(int id)
         {
+            await _administratorService.DeleteMechanic(id);
             return RedirectToAction(nameof(AllMechanics));
         }
 

@@ -1,10 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.ServiceViewsModels;
 
 namespace ms_autotuning.Controllers
 {
     public class ServiceController : Controller
     {
+        private readonly IServiceService _serviceService;
+        public ServiceController(IServiceService serviceService)
+        {
+            _serviceService = serviceService;
+        }
+
         // Get all reviews
         public async Task<IActionResult> AllReviews()
         {
@@ -23,7 +30,7 @@ namespace ms_autotuning.Controllers
         //Get all services
         public async Task<IActionResult> AllServices()
         {
-            var models = new List<ServiceViewModel>();
+            var models = await _serviceService.AllServices();
 
             return View(models);
         }
