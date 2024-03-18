@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ms_autotuning.Infrastructior.Data.Models;
+
 
 namespace ms_autotuning.Core.Contracts
 {
     public interface IAdministratorService
     {
-        Task EditService(EditServicesFormModel model);
+        Task<EditServicesFormModel> GetService(int id);
+        Task EditService(EditServicesFormModel editServicesFormModel);
         Task DelateReview(int id);
 
         Task DelateService(int id);

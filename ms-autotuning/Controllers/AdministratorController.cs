@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Differencing;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
+using ms_autotuning.Core.Models.ServiceViewsModels;
 using ms_autotuning.Core.Services;
 using ms_autotuning.Infrastructior.Data.Models;
 
@@ -16,15 +18,19 @@ namespace ms_autotuning.Controllers
         }
 
         //Edit Service
+        [HttpGet]
         public async Task<IActionResult> EditService(int id)
         {
-            return View(new EditServicesFormModel());
+            var model =await _administratorService.GetService(id);         
+            return View(model);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> EditService(EditServicesFormModel model)
         {
-            return RedirectToAction("Service", "AllServices");
+            await _administratorService.EditService(model);
+            return RedirectToAction("AllServices", "Service");
         }
 
         //Delate Review

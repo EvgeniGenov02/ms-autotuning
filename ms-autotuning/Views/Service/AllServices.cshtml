@@ -18,7 +18,7 @@
                 <p class="card-title mt-1">@service.Description</p>
             </div>
 
-            <form asp-controller="Administrator" asp-action="EditService" method="post">
+            <form asp-controller="Administrator" asp-action="EditService" method="get">
                 <input type="hidden" name="id" value="@service.Id" />
                 <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit Service</button>
             </form>

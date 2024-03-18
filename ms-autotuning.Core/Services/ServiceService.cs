@@ -41,7 +41,7 @@ namespace ms_autotuning.Core.Services
             throw new NotImplementedException();
         }
 
-        public async Task<ICollection<ServiceViewModel>> AllServices()
+        public async Task<ICollection<ServiceViewModel>> AllServices() 
         {
             var services =await _context.Services.AsNoTracking().Select(s => new ServiceViewModel
             {
@@ -53,5 +53,6 @@ namespace ms_autotuning.Core.Services
 
             return services;
         }
+
     }
 }

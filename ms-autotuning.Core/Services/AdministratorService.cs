@@ -66,9 +66,10 @@ namespace ms_autotuning.Core.Services
         public async Task DeleteMechanic(int id)
         {
             var mechanic = await _context.Mechanics.FirstOrDefaultAsync(m => m.Id == id);
+
             if(mechanic == null)
             {
-                return;
+                return ;
             }
 
             var user = _context.Users.Find(mechanic.UserId);
@@ -77,6 +78,7 @@ namespace ms_autotuning.Core.Services
             {
                 return;
             } 
+
             _context.Users.Remove(user);
             _context.Mechanics.Remove(mechanic);
             _context.SaveChanges();
@@ -118,9 +120,47 @@ namespace ms_autotuning.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task EditService(EditServicesFormModel model)
+        public async Task EditService(EditServicesFormModel editServicesFormModel)
         {
-            throw new NotImplementedException();
+            if (editServicesFormModel == null)
+            {
+                return;
+            }
+
+            var seminar = await _context.Services.FindAsync(editServicesFormModel.Id);
+
+            if (seminar == null)
+            {
+                return;
+            }
+
+            seminar.Description = editServicesFormModel.Description;
+            seminar.Price = editServicesFormModel.Price;
+            seminar.Name = editServicesFormModel.Name;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<EditServicesFormModel> GetService(int id)
+        {
+            Service entity = await _context.Services
+           .AsNoTracking()
+           .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var model = new EditServicesFormModel()
+            {
+                Name = entity.Name,
+                Price = entity.Price,
+                Description = entity.Description,
+                Id = id
+            };
+
+            return model;
         }
     }
 }

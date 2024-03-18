@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Models.ServiceViewsModels;
+using ms_autotuning.Infrastructior.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
