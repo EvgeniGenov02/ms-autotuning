@@ -15,7 +15,7 @@ namespace ms_autotuning.Controllers
         // Get all reviews
         public async Task<IActionResult> AllReviews()
         {
-            var models = new List<ReviewViewModel>();
+            var models = await _serviceService.AllReviews();
             return View(models);
         }
 
@@ -39,15 +39,15 @@ namespace ms_autotuning.Controllers
         //Send a form review formular
         public async Task<IActionResult> AddReviews()
         {
-            var models = new ReviewFormModel();
+            var models = await _serviceService.AddReview();
             return View(models);
         }
 
         //add a review in DB and return to all reviews 
         [HttpPost]
-        public async Task<IActionResult> AddReview(ReviewViewModel model)
+        public async Task<IActionResult> AddReviews(ReviewFormModel model)
         {
-
+            await _serviceService.AddReview(model);
             return RedirectToAction(nameof(AllReviews));
         }
 

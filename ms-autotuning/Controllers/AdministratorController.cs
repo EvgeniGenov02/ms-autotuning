@@ -33,13 +33,6 @@ namespace ms_autotuning.Controllers
             return RedirectToAction("AllServices", "Service");
         }
 
-        //Delate Review
-        [HttpPost]
-        public async Task<IActionResult> DelateReview(int id)
-        {
-            return RedirectToAction("Service", "AllReviews");
-        }
-
 
         //Delate Service
         [HttpPost]

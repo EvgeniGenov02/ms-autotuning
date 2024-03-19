@@ -11,14 +11,13 @@ namespace ms_autotuning.Core.Contracts
 {
     public interface IServiceService
     {
-        Task AllReviews();
+        Task<List<ReviewViewModel>> AllReviews();
 
         Task AllSales();
 
         Task<ICollection<ServiceViewModel>> AllServices();
 
-        Task AddReviews();
-
-        Task AddReview(ReviewViewModel model);
+        Task AddReview(ReviewFormModel model);
+        Task<ReviewFormModel> AddReview();
     }
 }

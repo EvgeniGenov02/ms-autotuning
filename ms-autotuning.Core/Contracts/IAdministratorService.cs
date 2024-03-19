@@ -9,8 +9,6 @@ namespace ms_autotuning.Core.Contracts
     {
         Task<EditServicesFormModel> GetService(int id);
         Task EditService(EditServicesFormModel editServicesFormModel);
-        Task DelateReview(int id);
-
         Task DelateService(int id);
 
         Task DelateSale(int id);

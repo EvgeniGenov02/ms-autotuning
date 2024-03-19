@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
@@ -95,11 +96,6 @@ namespace ms_autotuning.Core.Services
             await _context.Services.AddAsync(service);
 
             await _context.SaveChangesAsync();
-        }
-
-        public Task DelateReview(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public Task DelateSale(int id)
