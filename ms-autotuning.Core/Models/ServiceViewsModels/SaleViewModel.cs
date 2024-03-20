@@ -1,12 +1,4 @@
 ﻿using ms_autotuning.Infrastructior.Data.Models;
-using ms_autotuning.Infrastructior.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ms_autotuning.Core.Models.ServiceViewsModels
 {

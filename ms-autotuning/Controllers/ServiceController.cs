@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
+using ms_autotuning.Core.Models.AdministratorViewsModels;
 using ms_autotuning.Core.Models.ServiceViewsModels;
+using ms_autotuning.Core.Services;
 
 namespace ms_autotuning.Controllers
 {
@@ -22,8 +24,7 @@ namespace ms_autotuning.Controllers
         //Get all sales
         public async Task<IActionResult> AllSales()
         {
-            var models = new List<SaleViewModel>();
-
+            var models = await _serviceService.AllSales();
             return View(models);
         }
 
@@ -51,6 +52,19 @@ namespace ms_autotuning.Controllers
             return RedirectToAction(nameof(AllReviews));
         }
 
+        //Add Sales
+        public async Task<IActionResult> AddSales()
+        {
+            var model = await _serviceService.AddSales();
+            return View(model);
+        }
 
+        // Add Sales
+        [HttpPost]
+        public async Task<IActionResult> AddSales(AddSalesFormModel addSalesFormModel)
+        {
+            await _serviceService.AddSales(addSalesFormModel);
+            return RedirectToAction("Service", "AllSales");
+        }
     }
 }

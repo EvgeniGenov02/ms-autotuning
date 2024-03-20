@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Differencing;
+﻿using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
-using ms_autotuning.Core.Models.ServiceViewsModels;
-using ms_autotuning.Core.Services;
-using ms_autotuning.Infrastructior.Data.Models;
 
 namespace ms_autotuning.Controllers
 {
@@ -42,12 +37,12 @@ namespace ms_autotuning.Controllers
             return RedirectToAction("AllServices", "Service");
         }
 
-
         //Delate Sale
         [HttpPost]
         public async Task<IActionResult> DelateSale(int id)
         {
-            return RedirectToAction("Service", "AllSales");
+            await _administratorService.DelateSale(id);
+            return RedirectToAction("AllSales", "Service");
         }
 
         //Add Order

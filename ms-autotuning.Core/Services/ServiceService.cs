@@ -90,9 +90,47 @@ namespace ms_autotuning.Core.Services
             return reviews;
         }
 
-        public Task AllSales()
+        public async Task<AddSalesFormModel> AddSales()
         {
-            throw new NotImplementedException();
+            var addSalesFormModel = new AddSalesFormModel();
+
+
+            List<Service> services = await _context.Services
+            .AsNoTracking()
+            .ToListAsync();
+
+            addSalesFormModel.Services = services;
+
+            return addSalesFormModel;
+        }
+
+        public async Task AddSales(AddSalesFormModel model)
+        {
+            var sales = new Promotion()
+            {
+                ServiceId = model.ServiceId,
+                Price = model.Price,
+                Description = model.Description,
+            };
+
+            await _context.Promotions.AddAsync(sales);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<SaleViewModel>> AllSales()
+        {
+            var allSales =
+                await _context.Promotions
+                .AsNoTracking()
+                .Select(p => new SaleViewModel()
+                {
+                    Id = p.Id,
+                    Service = p.Service,
+                    Price = p.Price,
+                    Description = p.Description,
+                }).ToListAsync();
+
+            return allSales;    
         }
 
         public async Task<ICollection<ServiceViewModel>> AllServices() 

@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ms_autotuning.Core.Models.AdministratorViewsModels;
 using ms_autotuning.Core.Models.ServiceViewsModels;
-using ms_autotuning.Infrastructior.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ms_autotuning.Core.Contracts
 {
@@ -13,11 +7,15 @@ namespace ms_autotuning.Core.Contracts
     {
         Task<List<ReviewViewModel>> AllReviews();
 
-        Task AllSales();
+        Task<List<SaleViewModel>> AllSales();
 
         Task<ICollection<ServiceViewModel>> AllServices();
 
         Task AddReview(ReviewFormModel model);
         Task<ReviewFormModel> AddReview();
+
+        Task<AddSalesFormModel> AddSales();
+
+        Task AddSales(AddSalesFormModel model);
     }
 }

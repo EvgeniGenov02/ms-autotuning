@@ -7,16 +7,19 @@
 <h2 class="text-center">@ViewData["Title"]</h2>
 
 <div class="text-center row">
-    @foreach (var service in Model)
+    @foreach (var item in Model)
     {
         <div class="card col-4" style="width: 20rem; ">
             <div class="card-body">
-                <h4 class="card-title mt-1">@service.Service.Name</h4>
-                <h5 class="card-title mt-1">@service.Price</h5>
-                <p class="card-title mt-1">@service.Description</p>
+                <h4 class="card-title mt-1">@item.Service.Name</h4>
+                <h5 class="card-title mt-1">@item.Price</h5>
+                <p class="card-title mt-1">@item.Description</p>
             </div>
-   
-            <a asp-controller="Administrator" asp-action="DelateSale" asp-route-id="@service.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delate Sale</a>
+
+            <form asp-controller="Administrator" asp-action="DelateSale" method="post">
+                <input type="hidden" name="id" value="@item.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Mechanic</button>
+            </form>
 
         </div>
     }

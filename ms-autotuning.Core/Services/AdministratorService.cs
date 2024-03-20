@@ -98,9 +98,18 @@ namespace ms_autotuning.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task DelateSale(int id)
+        public async Task DelateSale(int id)
         {
-            throw new NotImplementedException();
+            var sale = await _context.Promotions.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (sale == null)
+            {
+                return;
+            }
+
+            _context.Promotions.Remove(sale);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task DelateService(int id)
