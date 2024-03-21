@@ -64,7 +64,7 @@ namespace ms_autotuning.Controllers
         public async Task<IActionResult> AddSales(AddSalesFormModel addSalesFormModel)
         {
             await _serviceService.AddSales(addSalesFormModel);
-            return RedirectToAction("Service", "AllSales");
+            return RedirectToAction("AllSales", "Service");
         }
     }
 }

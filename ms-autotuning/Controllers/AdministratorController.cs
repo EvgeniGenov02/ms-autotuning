@@ -46,7 +46,7 @@ namespace ms_autotuning.Controllers
         }
 
         //Add Order
-        public async Task<IActionResult> AddService()
+        public IActionResult AddService()
         {
             var model = new AddServiceFormModel();
             return View(model);
@@ -60,7 +60,7 @@ namespace ms_autotuning.Controllers
         }
 
         // Add Mechanic
-        public async Task<IActionResult> AddMechanic()
+        public IActionResult AddMechanic()
         {
             var model = new MechanicFormModel();
             return View(model);

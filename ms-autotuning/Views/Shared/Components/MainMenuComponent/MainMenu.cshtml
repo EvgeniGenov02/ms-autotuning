@@ -1,6 +1,60 @@
 ﻿<ul class="navbar-nav flex-grow-1">
-
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">За нас</a>
+    <li class="nav-item ms-1 me-2">
+        <a class="nav-link text-dark btn-lg" asp-area="" asp-controller="Home" asp-action="Index">За нас</a>
     </li>
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <li class="nav-item ms-1 me-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Услуги
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" asp-controller="Service" asp-action="AddReviews">Добавяне на мнение</a></li>
+                    <li><a class="dropdown-item" asp-controller="Service" asp-action="AddSales">Добавяне на промоция</a></li>
+                    <li><a class="dropdown-item" asp-controller="Service" asp-action="AllReviews">Мнения</a></li>
+                    <li><a class="dropdown-item" asp-controller="Service" asp-action="AllSales">Промоции</a></li>
+                    <li><a class="dropdown-item" asp-controller="Service" asp-action="AllServices">Всички услуги</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ms-1 me-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Поръчки
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" asp-controller="Order" asp-action="AllReservations">Резервации</a></li>
+                    <li><a class="dropdown-item" asp-controller="Order" asp-action="AllOrders">Поръчки</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ms-1 me-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Администратор
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" asp-controller="Administrator" asp-action="AddService">Добавяне на услуга</a></li>
+                    <li><a class="dropdown-item" asp-controller="Administrator" asp-action="AddMechanic">Добавяне на Механик</a></li>
+                    <li><a class="dropdown-item" asp-controller="Administrator" asp-action="AllMechanics">Всички Механици</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ms-1 me-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                Механик
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" asp-controller="Mechanic" asp-action="MechanicGraph">График</a></li>
+            </ul>
+        </div>
+    </li>
+    }
+
 </ul>
