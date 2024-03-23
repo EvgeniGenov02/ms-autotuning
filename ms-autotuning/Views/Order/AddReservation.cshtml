@@ -1,0 +1,42 @@
+﻿@model ReservationFormModel
+
+@{
+    ViewData["Title"] = "Резервация";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="AddReservation" method="post">
+
+            <div class="mb-3">
+                <label asp-for="@Model.ServiceId" class="form-label-add-edit">Изберете услуга</label>
+                <select asp-for="@Model.ServiceId" class="form-control" aria-required="true">
+                    <option disabled selected value="">Select Service...</option>
+                    @foreach (var service in Model.Services)
+                    {
+                        <option value="@service.Id">@service.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.ServiceId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="@Model.PhoneNumber" class="form-label-add-edit">Телефон</label>
+                <input asp-for="@Model.PhoneNumber" class="form-control" placeholder="Телефон" />
+                <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="@Model.Description" class="form-label-add-edit">Допълнителна информация</label>
+                <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="5"></textarea>
+                <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="btn mb-2 w-100 p-3 fw-bold" type="submit" value="Add Reservation" />
+            </div>
+        </form>
+    </div>
+</div>

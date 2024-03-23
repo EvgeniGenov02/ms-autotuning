@@ -16,7 +16,5 @@ namespace ms_autotuning.Core.Models.OrderViewsModels
         public string UserName { get; set; } = null!;
 
         public ApplicationUser User { get; set; } = null!;
-
-        public Mechanic Mechanic { get; set; } = null!;
     }
 }

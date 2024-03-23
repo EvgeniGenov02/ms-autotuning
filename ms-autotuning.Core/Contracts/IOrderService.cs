@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Models.OrderViewsModels;
+using ms_autotuning.Core.Models.ServiceViewsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,12 @@ namespace ms_autotuning.Core.Contracts
 {
     public interface IOrderService
     {
-        Task AllReservations();
+        Task AddReservation(ReservationFormModel model);
+        Task<ReservationFormModel> AddReservation();
+
+        Task<List<ReservationViewModel>> AllReservations();
 
         Task AllOrders();
-
-        Task GetOrder(OrdersViewModel order);
 
         Task DeleteOrder(int id);
 
