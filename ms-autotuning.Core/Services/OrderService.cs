@@ -96,9 +96,9 @@ namespace ms_autotuning.Core.Services
                     Service = r.Service,
                     Description = r.Description,
                     PhoneNumber = r.PhoneNumber,
-                    Email = user.Email,
-                    UserName = user.UserName,
-                    User = user,
+                    Email = r.User.Email,
+                    UserName = r.User.UserName,
+                    User = r.User,
                 }).ToListAsync();
 
             return reservation;

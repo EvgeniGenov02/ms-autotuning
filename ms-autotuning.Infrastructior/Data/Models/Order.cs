@@ -18,6 +18,11 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public Service Service { get; set; } = null!;
 
         [Required]
+        [Phone]
+        [MaxLength(DataConstants.OrderConstants.PhoneNumber)]
+        public string PhoneNumber { get; set; } = null!;
+
+        [Required]
         public string UserId { get; set; } = null!;
 
         [Required]

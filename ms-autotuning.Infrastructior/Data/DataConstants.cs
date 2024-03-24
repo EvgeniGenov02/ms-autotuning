@@ -50,7 +50,7 @@
         public static class OrderConstants
         {
             public const int DescriptionMaxLength = 1000;
-       
+            public const int PhoneNumber = 15;
         }
 
         public static class ApplicationUserConstants

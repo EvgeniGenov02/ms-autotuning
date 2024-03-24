@@ -86,12 +86,21 @@ namespace ms_autotuning.Core.Services
                 return;
             }
 
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if(user == null)
+            {
+                return;
+            }
+
             var order = await _context.Orders.AddAsync(new Order()
             {
                 ServiceId = reservation.ServiceId,
                 Description = reservation.Description,
                 UserId = userId,
+                User = user,
                 MechanicId = mechanic.Id,
+                PhoneNumber = reservation.PhoneNumber,
             });
 
             _context.Reservations.Remove(reservation);
@@ -122,10 +131,7 @@ namespace ms_autotuning.Core.Services
                     Id = o.Id,
                     Description = o.Description,
                     Service = o.Service,
-                    PhoneNumber = o.User.PhoneNumber,
-                    Email = o.User.Email,
-                    UserName = o.User.UserName,
-                    User = o.User
+                    PhoneNumber = o.PhoneNumber,
                 })
                 .ToListAsync();
 

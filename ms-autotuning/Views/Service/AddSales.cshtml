@@ -11,9 +11,9 @@
         <form asp-action="AddSales" method="post">
 
             <div class="mb-3">
-                <label asp-for="@Model.ServiceId" class="form-label-add-edit">Select Service</label>
+                <label asp-for="@Model.ServiceId" class="form-label-add-edit">Услуга</label>
                 <select asp-for="@Model.ServiceId" class="form-control" aria-required="true">
-                    <option disabled selected value="">Select Service...</option>
+                    <option disabled selected value="">Изберете услуга...</option>
                     @foreach (var service in Model.Services)
                     {
                         <option value="@service.Id">@service.Name</option>
@@ -23,19 +23,19 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="@Model." class="form-label-add-edit">Description</label>
+                <label asp-for="@Model." class="form-label-add-edit">Информация</label>
                 <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="5"></textarea>
                 <span asp-validation-for="@Model.Description" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="@Model.Price" class="form-label-add-edit">Price</label>
+                <label asp-for="@Model.Price" class="form-label-add-edit">Цена</label>
                 <input asp-for="@Model.Price" class="form-control" />
                 <span asp-validation-for="@Model.Price" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <input class="btn mb-2 w-100 p-3 fw-bold" type="submit" value="Add Sales" />
+                <input class="btn mb-2 w-100 p-3 fw-bold" type="submit" value="Добави Промоцията" />
             </div>
         </form>
     </div>

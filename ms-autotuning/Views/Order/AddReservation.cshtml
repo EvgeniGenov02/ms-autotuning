@@ -13,7 +13,7 @@
             <div class="mb-3">
                 <label asp-for="@Model.ServiceId" class="form-label-add-edit">Изберете услуга</label>
                 <select asp-for="@Model.ServiceId" class="form-control" aria-required="true">
-                    <option disabled selected value="">Select Service...</option>
+                    <option disabled selected value="">Изберете услуга...</option>
                     @foreach (var service in Model.Services)
                     {
                         <option value="@service.Id">@service.Name</option>

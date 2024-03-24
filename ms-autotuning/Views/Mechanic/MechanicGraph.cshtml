@@ -14,15 +14,13 @@
         <div class="card col-4" style="width: 20rem; ">
             <div class="card-body">
                 <h4 class="card-title mt-1">Услуга: @order.Service.Name</h4>
-                <h5 class="card-title mt-1">Име на клиента: @order.UserName</h5>
-                <h5 class="card-title mt-1">Телефон: @order.PhoneNumber</h5>
-                <h5 class="card-title mt-1">Имейл: @order.Email</h5>
+                <h5 class="card-title mt-1">Телефон на клиента: @order.PhoneNumber</h5>
                 <p class="card-title mt-1">Описатие: @order.Description</p>
             </div>
 
             <form asp-controller="Mechanic" asp-action="CompleteOrder" method="post">
                 <input type="hidden" name="id" value="@order.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Complete Order</button>
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Завърши Поръчката</button>
             </form>
         </div>
     }

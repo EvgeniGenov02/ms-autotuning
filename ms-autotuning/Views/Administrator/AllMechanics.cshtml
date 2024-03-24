@@ -13,15 +13,15 @@
     {
         <div class="card col-4" style="width: 20rem; ">
             <div class="card-body">
-                <h4 class="card-title mt-1">@mechanic.FirstName</h4>
-                <h5 class="card-title mt-1">@mechanic.LastName</h5>
-                <h5 class="card-title mt-1">@mechanic.Email</h5>
-                <h5 class="card-title mt-1">@mechanic.PhoneNumber</h5>
+                <h4 class="card-title mt-1">Име: @mechanic.FirstName</h4>
+                <h5 class="card-title mt-1">Фамилия: @mechanic.LastName</h5>
+                <h5 class="card-title mt-1">Имейл: @mechanic.Email</h5>
+                <h5 class="card-title mt-1">Телефон: @mechanic.PhoneNumber</h5>
             </div>
 
             <form asp-controller="Administrator" asp-action="DeleteMechanic" method="post">
                 <input type="hidden" name="id" value="@mechanic.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Mechanic</button>
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Премахване на Механика</button>
             </form>
 
         </div>

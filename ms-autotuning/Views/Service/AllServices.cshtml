@@ -13,19 +13,19 @@
     {
         <div class="card col-4" style="width: 20rem; ">
             <div class="card-body">
-                <h4 class="card-title mt-1">@service.Name</h4>
-                <h5 class="card-title mt-1">@service.Price</h5>
-                <p class="card-title mt-1">@service.Description</p>
+                <h4 class="card-title mt-1">Име: @service.Name</h4>
+                <h5 class="card-title mt-1">Цена: @service.Price</h5>
+                <p class="card-title mt-1">Описание: @service.Description</p>
             </div>
 
             <form asp-controller="Administrator" asp-action="EditService" method="get">
                 <input type="hidden" name="id" value="@service.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit Service</button>
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Редактирай Услугата</button>
             </form>
 
             <form asp-controller="Administrator" asp-action="DelateService" method="post">
                 <input type="hidden" name="id" value="@service.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delate Service</button>
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Изтрий Услугата</button>
             </form>
         </div>
     }

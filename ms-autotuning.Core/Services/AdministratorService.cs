@@ -59,7 +59,7 @@ namespace ms_autotuning.Core.Services
                 FirstName = m.User.FirstName,
                 LastName = m.User.LastName,
                 Email = m.User.Email,
-                PhoneNumber = m.User.PhoneNumber,
+                PhoneNumber = m.PhoneNumber,
             }).ToListAsync();
 
             return mechanics;
