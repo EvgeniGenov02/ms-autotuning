@@ -16,7 +16,7 @@ namespace ms_autotuning.Core.Contracts
 
         Task<List<ReservationViewModel>> AllReservations();
 
-        Task AllOrders();
+        Task<List<OrdersViewModel>> AllOrders();
 
         Task DeleteOrder(int id);
 

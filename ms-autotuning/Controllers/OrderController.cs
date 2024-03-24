@@ -43,7 +43,7 @@ namespace ms_autotuning.Controllers
         [HttpGet]
         public async Task<IActionResult> AllOrders()
         {
-            var model = new List<OrdersViewModel>();
+            var model =await _оrderService.AllOrders();
             return View(model);
         }
 
@@ -51,6 +51,7 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteOrder(int id)
         {
+            await _оrderService.DeleteOrder(id);
             return RedirectToAction(nameof(AllOrders));
         }
 

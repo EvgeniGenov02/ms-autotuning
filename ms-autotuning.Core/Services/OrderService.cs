@@ -70,9 +70,19 @@ namespace ms_autotuning.Core.Services
             return reservationFormModel;
         }
 
-        public Task AllOrders()
+        public async Task<List<OrdersViewModel>> AllOrders()
         {
-            throw new NotImplementedException();
+            return await _context.Orders.Select(o => new OrdersViewModel()
+            {
+                Id = o.Id,
+                ServiceId = o.ServiceId,
+                Service = o.Service,
+                Description = o.Description,
+                PhoneNumber = o.User.PhoneNumber,
+                Email = o.User.Email,
+                User = o.User
+            }).ToListAsync();
+
         }
 
         public async Task<List<ReservationViewModel>> AllReservations()
@@ -80,7 +90,6 @@ namespace ms_autotuning.Core.Services
             var userId = GetUserIdFromHttpContext();
             var user = await _context.Users.FindAsync(userId);
             var reservation = await _context.Reservations
-                .Where(r => r.UserId == userId)
                 .Select(r => new ReservationViewModel()
                 {
                     Id = r.Id,
@@ -95,9 +104,18 @@ namespace ms_autotuning.Core.Services
             return reservation;
         }
 
-        public Task DeleteOrder(int id)
+        public async Task DeleteOrder(int id)
         {
-            throw new NotImplementedException();
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+
+            if (order == null)
+            {
+                return;
+            }
+
+            _context.Orders.Remove(order);
+
+            await _context.SaveChangesAsync();  
         }
 
         public async Task DeleteReservation(int id)

@@ -47,6 +47,12 @@
             public const int DescriptionMinLength = 10;
         }
 
+        public static class OrderConstants
+        {
+            public const int DescriptionMaxLength = 1000;
+       
+        }
+
         public static class ApplicationUserConstants
         {
             public const int FirstNameMaxLength = 100;

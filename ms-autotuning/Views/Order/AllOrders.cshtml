@@ -19,9 +19,13 @@
                 <h5 class="card-title mt-1">Имейл: @order.Email</h5>
                 <p class="card-title mt-1">Описатие: @order.Description</p>
             </div>
-        </div>
 
-        <a asp-controller="Order" asp-action="DeleteOrder" asp-route-id="@order.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Order</a>
+            <form asp-controller="Order" asp-action="DeleteOrder" method="post">
+                <input type="hidden" name="id" value="@order.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete order</button>
+            </form>
+
+        </div>
 
     }
 </div>

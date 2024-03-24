@@ -19,7 +19,11 @@
                 <h5 class="card-title mt-1">Имейл: @order.Email</h5>
                 <p class="card-title mt-1">Описатие: @order.Description</p>
             </div>
-            <a asp-controller="Mechanic" asp-action="CompleteOrder" asp-route-id="@order.Id" class="btn mb-2 w-100 p-3 fw-bold">Complete Order</a>
+
+            <form asp-controller="Mechanic" asp-action="CompleteOrder" method="post">
+                <input type="hidden" name="id" value="@order.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Complete Order</button>
+            </form>
         </div>
     }
 </div>

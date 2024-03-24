@@ -18,8 +18,5 @@ namespace ms_autotuning.Infrastructior.Data.Models
 
         [ForeignKey(nameof(UserId))]
         public ApplicationUser User { get; set; } = null!;
-
-        public IEnumerable<Reservation> Reservations { get; init; }
-       = new List<Reservation>();
     }
 }

@@ -24,6 +24,12 @@
                 <input type="hidden" name="id" value="@reservation.Id" />
                 <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Reservation</button>
             </form>
+
+            <form asp-controller="Mechanic" asp-action="GetOrder" method="post">
+                <input type="hidden" name="id" value="@reservation.Id" />
+                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Get Order</button>
+            </form>
+
         </div>
     }
 </div>
