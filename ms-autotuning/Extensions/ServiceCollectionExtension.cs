@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Services;
 using ms_autotuning.Infrastructior.Data;
@@ -37,6 +38,7 @@ namespace Microsoft.Extensions.DependencyInjection
                  options.Password.RequireUppercase = false;
                  options.Password.RequireNonAlphanumeric = false;
              })
+             .AddRoles<ApplicationRole>()
              .AddEntityFrameworkStores<ApplicationDbContext>();
 
             return services;

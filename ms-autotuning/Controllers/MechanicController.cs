@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
-using ms_autotuning.Core.Models.MechanicViewsModels;
 
 namespace ms_autotuning.Controllers
 {
+    [Authorize(Roles = "Mechanic")]
     public class MechanicController : Controller
     {
         private readonly IMechanicService _mechanicService;

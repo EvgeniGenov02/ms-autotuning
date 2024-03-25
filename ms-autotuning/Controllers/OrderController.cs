@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.OrderViewsModels;
 using ms_autotuning.Core.Models.ServiceViewsModels;
@@ -6,6 +7,7 @@ using ms_autotuning.Core.Services;
 
 namespace ms_autotuning.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderService _оrderService;
@@ -16,6 +18,7 @@ namespace ms_autotuning.Controllers
 
         //Create Reservation
         //Send a form reservation formular
+        
         public async Task<IActionResult> AddReservation()
         {
             var models = await _оrderService.AddReservation();
@@ -27,11 +30,12 @@ namespace ms_autotuning.Controllers
         public async Task<IActionResult> AddReservation(ReservationFormModel model)
         {
             await _оrderService.AddReservation(model);
-            return RedirectToAction(nameof(AllReservations));
+            return RedirectToAction("Index", "Home");
         }
 
 
         //All Reservations
+        [Authorize(Roles = "Admin,Mechanic")]
         [HttpGet]
         public async Task<IActionResult> AllReservations()
         {
@@ -40,6 +44,7 @@ namespace ms_autotuning.Controllers
         }
 
         //All Orders
+        [Authorize(Roles = "Admin,Mechanic")]
         [HttpGet]
         public async Task<IActionResult> AllOrders()
         {
@@ -48,6 +53,7 @@ namespace ms_autotuning.Controllers
         }
 
         //Delete Order
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteOrder(int id)
         {
@@ -56,6 +62,7 @@ namespace ms_autotuning.Controllers
         }
 
         //Delete Order
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteReservation(int id)
         {

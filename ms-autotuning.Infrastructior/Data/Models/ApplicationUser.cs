@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ms_autotuning.Infrastructior.Data.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser  
     {
         [Required]
         [MaxLength(DataConstants.ApplicationUserConstants.FirstNameMaxLength)]

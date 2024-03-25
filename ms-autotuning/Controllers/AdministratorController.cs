@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
 
 namespace ms_autotuning.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdministratorController : Controller
     {
         private readonly IAdministratorService _administratorService;

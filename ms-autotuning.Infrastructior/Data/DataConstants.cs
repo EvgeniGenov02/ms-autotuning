@@ -62,5 +62,11 @@
             public const int LastNameMinLength = 2;
         }
 
+        public static class ApplicationApplicationRole
+        {
+            public const int BGNameMaxLength = 100;
+            public const int BGNameMinLength = 2;
+        }
+
     }
 }

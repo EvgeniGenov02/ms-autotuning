@@ -88,7 +88,6 @@ namespace ms_autotuning.Core.Services
         public async Task<List<ReservationViewModel>> AllReservations()
         {
             var userId = GetUserIdFromHttpContext();
-            var user = await _context.Users.FindAsync(userId);
             var reservation = await _context.Reservations
                 .Select(r => new ReservationViewModel()
                 {
@@ -120,7 +119,6 @@ namespace ms_autotuning.Core.Services
 
         public async Task DeleteReservation(int id)
         {
-            var userId = GetUserIdFromHttpContext();
             var reservation = await _context.Reservations.FirstOrDefaultAsync(r => r.Id == id);
 
             if (reservation == null)
@@ -128,10 +126,6 @@ namespace ms_autotuning.Core.Services
                 return;
             }
 
-            if(reservation.User.Id != userId)
-            {
-                return;
-            }
             _context.Reservations.Remove(reservation);
             await _context.SaveChangesAsync();
         }

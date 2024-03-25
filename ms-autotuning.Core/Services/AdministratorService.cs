@@ -16,21 +16,25 @@ namespace ms_autotuning.Core.Services
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
         public AdministratorService(ApplicationDbContext context,
               UserManager<ApplicationUser> userManager,
-              IUserStore<ApplicationUser> userStore)
+              IUserStore<ApplicationUser> userStore,
+               RoleManager<ApplicationRole> roleManager)
         {
+            _roleManager = roleManager;
             _context = context;
             _userManager = userManager;
             _userStore = userStore;
 
         }
 
+
         public async Task AddMechanic(MechanicFormModel model)
         {
-
-            var user  = new ApplicationUser()
+            // Create the user
+            var user = new ApplicationUser()
             {
                 UserName = model.Email,
                 Email = model.Email,
@@ -41,14 +45,27 @@ namespace ms_autotuning.Core.Services
             await _userStore.SetUserNameAsync(user, model.Email, CancellationToken.None);
             await _userManager.CreateAsync(user, model.Password);
 
+            // Проверка за съществуване на роля "Mechanic"
+            var roleExists = await _roleManager.RoleExistsAsync("Mechanic");  
+
+            if (!roleExists)
+            {
+                await _roleManager.CreateAsync(new ApplicationRole 
+                {
+                    Name = "Mechanic",
+                    BGName = "Механик"
+                }); 
+            }
+
+            await _userManager.AddToRoleAsync(user, "Mechanic");
+         
             var entity = new Mechanic()
             {
                 PhoneNumber = model.PhoneNumber,
                 User = user
             };
 
-            await _context.Mechanics.AddAsync(entity); 
-
+            await _context.Mechanics.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
         public async Task<ICollection<MechanicsViewModel>> AllMechanics()

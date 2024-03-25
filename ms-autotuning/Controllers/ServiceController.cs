@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
 using ms_autotuning.Core.Models.ServiceViewsModels;
@@ -53,6 +54,7 @@ namespace ms_autotuning.Controllers
         }
 
         //Add Sales
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSales()
         {
             var model = await _serviceService.AddSales();
@@ -61,6 +63,7 @@ namespace ms_autotuning.Controllers
 
         // Add Sales
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSales(AddSalesFormModel addSalesFormModel)
         {
             await _serviceService.AddSales(addSalesFormModel);

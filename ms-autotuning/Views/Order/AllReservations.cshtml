@@ -20,16 +20,23 @@
                 <p class="card-title mt-1">Описатие: @reservation.Description</p>
             </div>
 
-            <form asp-controller="Order" asp-action="DeleteReservation" method="post">
-                <input type="hidden" name="id" value="@reservation.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Reservation</button>
-            </form>
+              @if (User.IsInRole("Admin"))
+                {
+                   <form asp-controller="Order" asp-action="DeleteReservation" method="post">
+                       <input type="hidden" name="id" value="@reservation.Id" />
+                       <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Delete Reservation</button>
+                   </form>
+                }
 
-            <form asp-controller="Mechanic" asp-action="GetOrder" method="post">
-                <input type="hidden" name="id" value="@reservation.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Get Order</button>
-            </form>
-
+               @if (User.IsInRole("Mechanic"))
+                {
+                    <form asp-controller="Mechanic" asp-action="GetOrder" method="post">
+                        <input type="hidden" name="id" value="@reservation.Id" />
+                        <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Get Order</button>
+                    </form>
+                }
+        
+       
         </div>
     }
 </div>

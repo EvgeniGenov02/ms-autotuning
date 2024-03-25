@@ -18,15 +18,19 @@
                 <p class="card-title mt-1">Описание: @service.Description</p>
             </div>
 
-            <form asp-controller="Administrator" asp-action="EditService" method="get">
-                <input type="hidden" name="id" value="@service.Id" />
-                <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Редактирай Услугата</button>
-            </form>
+            @if (User.IsInRole("Admin"))
+            {
+                <form asp-controller="Administrator" asp-action="EditService" method="get">
+                    <input type="hidden" name="id" value="@service.Id" />
+                    <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Редактирай Услугата</button>
+                </form>
 
-            <form asp-controller="Administrator" asp-action="DelateService" method="post">
-                <input type="hidden" name="id" value="@service.Id" />
+                <form asp-controller="Administrator" asp-action="DelateService" method="post">
+                    <input type="hidden" name="id" value="@service.Id" />
                 <button type="submit" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Изтрий Услугата</button>
             </form>
+            }
+
         </div>
     }
 </div>

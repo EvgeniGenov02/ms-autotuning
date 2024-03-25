@@ -12,7 +12,10 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" asp-controller="Service" asp-action="AddReviews">Добавяне на мнение</a></li>
+                    @if (User.IsInRole("Admin"))
+                    {
                     <li><a class="dropdown-item" asp-controller="Service" asp-action="AddSales">Добавяне на промоция</a></li>
+                    }
                     <li><a class="dropdown-item" asp-controller="Service" asp-action="AllReviews">Мнения</a></li>
                     <li><a class="dropdown-item" asp-controller="Service" asp-action="AllSales">Промоции</a></li>
                     <li><a class="dropdown-item" asp-controller="Service" asp-action="AllServices">Всички услуги</a></li>
@@ -26,15 +29,19 @@
                     Поръчки
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" asp-controller="Order" asp-action="AllReservations">Резервации</a></li>
-                    <li><a class="dropdown-item" asp-controller="Order" asp-action="AllOrders">Поръчки</a></li>
+                    @if (User.IsInRole("Mechanic") || User.IsInRole("Admin"))
+                    {
+                        <li><a class="dropdown-item" asp-controller="Order" asp-action="AllReservations">Резервации</a></li>
+                        <li><a class="dropdown-item" asp-controller="Order" asp-action="AllOrders">Поръчки</a></li>
+                    }
                     <li><a class="dropdown-item" asp-controller="Order" asp-action="AddReservation">Направи порчка</a></li>
                 </ul>
             </div>
         </li>
-
-        <li class="nav-item ms-1 me-2">
-            <div class="dropdown">
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item ms-1 me-2">
+                <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                     Администратор
                 </button>
@@ -45,17 +52,21 @@
                 </ul>
             </div>
         </li>
-
-        <li class="nav-item ms-1 me-2">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                Механик
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" asp-controller="Mechanic" asp-action="MechanicGraph">График</a></li>
-            </ul>
-        </div>
-    </li>
+        }
+        @if (User.IsInRole("Mechanic"))
+        {
+            <li class="nav-item ms-1 me-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle transparent-btn btn-lg" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Механик
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" asp-controller="Mechanic" asp-action="MechanicGraph">График</a></li>
+                    </ul>
+                </div>
+            </li>
+        }
+     
     }
 
 </ul>
