@@ -57,7 +57,7 @@ namespace ms_autotuning.Infrastructior.Data
                 }
             );
         }
-        public DbSet<Administrator>? Administrators { get; set; }
+
         public DbSet<Mechanic>? Mechanics { get; set; }
         public DbSet<Promotion>? Promotions { get; set; }
         public DbSet<Reservation>? Reservations { get; set; }
