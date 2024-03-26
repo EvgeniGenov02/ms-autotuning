@@ -59,6 +59,7 @@ namespace ms_autotuning.Infrastructior.Data
         }
 
         public DbSet<Mechanic>? Mechanics { get; set; }
+        public DbSet<CompleteOrder>? CompleteOrders { get; set; }
         public DbSet<Promotion>? Promotions { get; set; }
         public DbSet<Reservation>? Reservations { get; set; }
         public DbSet<Review>? Reviews { get; set; }
