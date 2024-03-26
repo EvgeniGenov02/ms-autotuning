@@ -59,6 +59,13 @@ namespace ms_autotuning.Core.Services
 
             _context.Orders.Remove(order);
 
+            await _context.CompleteOrders.AddAsync(new CompleteOrder()
+            {
+                MechanicId = mechanic.Id,
+                Time = DateTime.Now,
+                ServiceId = order.ServiceId,
+            });
+
            await _context.SaveChangesAsync();
 
         }

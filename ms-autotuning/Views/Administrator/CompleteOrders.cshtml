@@ -1,0 +1,24 @@
+﻿@model List<CompleteOrdersViewModel>
+
+@{
+    ViewData["Title"] = "Завършени Поръчки";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<hr />
+
+<div class="text-center row">
+    @foreach (var order in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h4 class="card-title mt-1">Име на извършената услуга: @order.Service</h4>
+                <h5 class="card-title mt-1">Механик: @order.MechanicNames</h5>
+                <h5 class="card-title mt-1">Завършена поръчка на: @order.Time</h5>
+            </div>
+
+        </div>
+    }
+</div>
+

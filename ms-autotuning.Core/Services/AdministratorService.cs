@@ -184,5 +184,18 @@ namespace ms_autotuning.Core.Services
 
             return model;
         }
+
+        public async Task<ICollection<CompleteOrdersViewModel>> CompleteOrders()
+        {
+            return await _context.CompleteOrders
+                .AsNoTracking()
+                .Select(co=> new CompleteOrdersViewModel()
+                {
+                    MechanicNames = co.Mechanic.User.FirstName + " " + co.Mechanic.User.LastName,
+                    Service = co.Service.Name,
+                    Time = co.Time.ToString("dd.MM.yyyy HH:mm"),
+                })
+                .ToListAsync();
+        }
     }
 }

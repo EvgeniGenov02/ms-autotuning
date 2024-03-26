@@ -92,5 +92,12 @@ namespace ms_autotuning.Controllers
             return RedirectToAction(nameof(AllMechanics));
         }
 
+        //CompleteOrders
+        public async Task<IActionResult> CompleteOrders()
+        {
+            var model = await _administratorService.CompleteOrders();
+            return View(model);
+        }
+
     }
 }
