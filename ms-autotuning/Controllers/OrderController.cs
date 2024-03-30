@@ -21,6 +21,10 @@ namespace ms_autotuning.Controllers
         
         public async Task<IActionResult> AddReservation()
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var models = await _оrderService.AddReservation();
             return View(models);
         }

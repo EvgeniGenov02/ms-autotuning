@@ -16,17 +16,20 @@
             public const int NameMinLength = 2;
 
             public const int PhoneNumberMaxLength = 15;
+            public const int PhoneNumberMinLength = 15;
         }
 
         public static class PromotionConstants
         {
             public const int DescriptionMaxLength = 1000;
+
         }
 
         public static class ReservationConstants
         {
             public const int DescriptionMaxLength = 1000;
             public const int PhoneNumber = 15;
+            public const int PhoneNumberMinLength = 3;
         }
 
 
