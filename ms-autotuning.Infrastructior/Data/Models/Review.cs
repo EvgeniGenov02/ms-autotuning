@@ -36,7 +36,7 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public int Rating { get; set; }
 
         [MaxLength(DataConstants.ReservationConstants.DescriptionMaxLength)]
-        public string Feedback { get; set; } = string.Empty;
+        public string? Feedback { get; set; } = null;
 
     }
 }

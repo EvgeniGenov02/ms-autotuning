@@ -57,6 +57,11 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddService(AddServiceFormModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             await _administratorService.AddService(model);
             return RedirectToAction("AllServices", "Service");
         }
@@ -71,6 +76,11 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMechanic(MechanicFormModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             await _administratorService.AddMechanic(model);
 
             return RedirectToAction(nameof(AllMechanics));

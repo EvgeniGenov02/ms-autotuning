@@ -15,13 +15,19 @@
             public const int NameMaxLength = 50;
             public const int NameMinLength = 2;
 
+            public const int LastNameMaxLength = 50;
+            public const int LastNameMinLength = 2;
+
             public const int PhoneNumberMaxLength = 15;
             public const int PhoneNumberMinLength = 15;
         }
 
         public static class PromotionConstants
         {
-            public const int DescriptionMaxLength = 1000;
+            public const int DescriptionMaxLength = 1500;
+            public const int DescriptionMinLength = 10;
+
+           public const string RegularExpressionForPrice = @"^\d+$";
 
         }
 
@@ -38,7 +44,7 @@
             public const int Feedback = 1000;
 
             public const int RatingMax = 5;
-            public const int RatingMin = 0;
+            public const int RatingMin = 1;
         }
 
         public static class ServiceConstants
@@ -48,6 +54,8 @@
 
             public const int DescriptionMaxLength = 1500;
             public const int DescriptionMinLength = 10;
+
+            public const string RegularExpressionForPrice = @"^\d+$";
         }
 
         public static class OrderConstants

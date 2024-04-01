@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ms_autotuning.Infrastructior.Data;
 
@@ -11,9 +12,10 @@ using ms_autotuning.Infrastructior.Data;
 namespace ms_autotuning.Infrastructior.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240331181120_makeNullableDescriptionReservation")]
+    partial class makeNullableDescriptionReservation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,8 +115,8 @@ namespace ms_autotuning.Infrastructior.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "31ff7d68-f44c-4f2a-a5cd-7a7b0185204e",
-                            RoleId = "5ba7c396-0d61-4211-aab9-bdde863df48e"
+                            UserId = "5c38e460-f6aa-4bc4-9534-070279296a05",
+                            RoleId = "972a5d94-f0eb-44b9-bc23-fb71eab7246b"
                         });
                 });
 
@@ -172,9 +174,9 @@ namespace ms_autotuning.Infrastructior.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5ba7c396-0d61-4211-aab9-bdde863df48e",
+                            Id = "972a5d94-f0eb-44b9-bc23-fb71eab7246b",
                             BGName = "Администратор",
-                            ConcurrencyStamp = "49294bef-63d9-43d1-b0e9-9beec3f95dd3",
+                            ConcurrencyStamp = "b3c9fa2a-2858-4f37-bfb6-4cea9dfdd15f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -257,9 +259,9 @@ namespace ms_autotuning.Infrastructior.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "31ff7d68-f44c-4f2a-a5cd-7a7b0185204e",
+                            Id = "5c38e460-f6aa-4bc4-9534-070279296a05",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42ac7a36-564c-4492-a3e1-341972a0c096",
+                            ConcurrencyStamp = "3e9642a5-30f0-4730-84be-472691bc836f",
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             FirstName = "Администратор",
@@ -267,9 +269,9 @@ namespace ms_autotuning.Infrastructior.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAx1OtOFRdpvhBXZPlgnzuTP1Cr4CT7TIZAyHzmRNuDKDMTOjDfV1eC5TLEUkViLfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECGEOUt6lU1yixdgxGcW/inRTjHyYL6MhBvDJm4FYwUyE0ujryt6ySeHzScxYOPmIQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7cb8e74b-0535-485b-9ea3-2df23e3a2f24",
+                            SecurityStamp = "658ea6f3-079f-4c1f-bbc5-e5171546571b",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         });
@@ -430,6 +432,7 @@ namespace ms_autotuning.Infrastructior.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Feedback")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 

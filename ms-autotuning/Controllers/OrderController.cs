@@ -20,11 +20,7 @@ namespace ms_autotuning.Controllers
         //Send a form reservation formular
         
         public async Task<IActionResult> AddReservation()
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        {    
             var models = await _оrderService.AddReservation();
             return View(models);
         }
@@ -33,6 +29,11 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddReservation(ReservationFormModel model)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             await _оrderService.AddReservation(model);
             return RedirectToAction("Index", "Home");
         }

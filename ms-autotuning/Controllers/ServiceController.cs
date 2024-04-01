@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
 using ms_autotuning.Core.Models.ServiceViewsModels;
@@ -49,6 +50,12 @@ namespace ms_autotuning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddReviews(ReviewFormModel model)
         {
+
+            if(ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             await _serviceService.AddReview(model);
             return RedirectToAction(nameof(AllReviews));
         }
@@ -66,6 +73,11 @@ namespace ms_autotuning.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSales(AddSalesFormModel addSalesFormModel)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             await _serviceService.AddSales(addSalesFormModel);
             return RedirectToAction("AllSales", "Service");
         }

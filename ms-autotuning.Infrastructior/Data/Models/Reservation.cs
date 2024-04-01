@@ -17,7 +17,7 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public Service Service { get; set; } = null!;
 
         [MaxLength(DataConstants.ReservationConstants.DescriptionMaxLength)]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = null;
 
         [Required]
         [Phone]
