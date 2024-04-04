@@ -4,14 +4,7 @@ using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.OrderViewsModels;
 using ms_autotuning.Infrastructior.Data.Models;
 using ms_autotuning.Infrastructior.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ms_autotuning.Core.Models.ServiceViewsModels;
-using Microsoft.Azure.Documents;
 
 namespace ms_autotuning.Core.Services
 {

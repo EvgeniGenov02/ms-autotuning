@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
+using ms_autotuning.Core.Models.MechanicViewsModels;
+using ms_autotuning.Core.Models.ServiceViewsModels;
 using ms_autotuning.Infrastructior.Data;
 using ms_autotuning.Infrastructior.Data.Models;
 using System.Xml.Linq;
@@ -33,7 +35,6 @@ namespace ms_autotuning.Core.Services
 
         public async Task AddMechanic(MechanicFormModel model)
         {
-            // Create the user
             var user = new ApplicationUser()
             {
                 UserName = model.Email,
@@ -45,7 +46,6 @@ namespace ms_autotuning.Core.Services
             await _userStore.SetUserNameAsync(user, model.Email, CancellationToken.None);
             await _userManager.CreateAsync(user, model.Password);
 
-            // Проверка за съществуване на роля "Mechanic"
             var roleExists = await _roleManager.RoleExistsAsync("Mechanic");  
 
             if (!roleExists)
@@ -185,8 +185,10 @@ namespace ms_autotuning.Core.Services
             return model;
         }
 
-        public async Task<ICollection<CompleteOrdersViewModel>> CompleteOrders()
+        public async Task<ICollection<CompleteOrdersViewModel>> CompleteOrders(string? name)
         {
+            if(name == null || name == string.Empty)
+            {
             return await _context.CompleteOrders
                 .AsNoTracking()
                 .Select(co=> new CompleteOrdersViewModel()
@@ -196,6 +198,24 @@ namespace ms_autotuning.Core.Services
                     Time = co.Time.ToString("dd.MM.yyyy HH:mm"),
                 })
                 .ToListAsync();
-        }
+           }
+
+            else
+            {
+
+                return await _context.CompleteOrders
+               .Where(co => (co.Mechanic.User.FirstName + " " + co.Mechanic.User.LastName)
+               .ToLower().Contains(name.ToLower()))
+               .AsNoTracking()
+              .Select(co => new CompleteOrdersViewModel()
+              {
+                  MechanicNames = co.Mechanic.User.FirstName + " " + co.Mechanic.User.LastName,
+                  Service = co.Service.Name,
+                  Time = co.Time.ToString("dd.MM.yyyy HH:mm"),
+              })
+              .ToListAsync();
+            }
+
+    }
     }
 }

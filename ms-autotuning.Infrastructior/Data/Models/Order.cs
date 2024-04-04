@@ -9,7 +9,7 @@ namespace ms_autotuning.Infrastructior.Data.Models
         public int Id { get; set; }
 
         [MaxLength(DataConstants.OrderConstants.DescriptionMaxLength)]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = null;
 
         [Required]
         public int ServiceId { get; set; }

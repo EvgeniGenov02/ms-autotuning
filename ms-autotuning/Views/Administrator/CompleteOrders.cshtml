@@ -8,6 +8,15 @@
 
 <hr />
 
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
+
+<form method="post" asp-action="CompleteOrders">
+    <input type="text" name="name" placeholder="Въведете име на механика..." />
+    <button type="submit">Потърси</button>
+</form>
+
+@if(Model != null)
+{
 <div class="text-center row">
     @foreach (var order in Model)
     {
@@ -17,8 +26,7 @@
                 <h5 class="card-title mt-1">Механик: @order.MechanicNames</h5>
                 <h5 class="card-title mt-1">Завършена поръчка на: @order.Time</h5>
             </div>
-
         </div>
     }
 </div>
-
+}

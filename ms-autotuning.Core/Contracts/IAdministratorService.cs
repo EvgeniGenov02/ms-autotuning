@@ -18,7 +18,7 @@ namespace ms_autotuning.Core.Contracts
         Task AddMechanic(MechanicFormModel model);
 
         Task<ICollection<MechanicsViewModel>> AllMechanics();
-        Task<ICollection<CompleteOrdersViewModel>> CompleteOrders();
+        Task<ICollection<CompleteOrdersViewModel>> CompleteOrders(string? name);
 
         Task DeleteMechanic(int id);
     }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ms_autotuning.Core.Contracts;
 using ms_autotuning.Core.Models.AdministratorViewsModels;
+using System.Xml.Linq;
 
 namespace ms_autotuning.Controllers
 {
@@ -102,11 +103,20 @@ namespace ms_autotuning.Controllers
             return RedirectToAction(nameof(AllMechanics));
         }
 
-        //CompleteOrders
-        public async Task<IActionResult> CompleteOrders()
+
+        // Post Complete Orders
+        [HttpPost]
+        public async Task<IActionResult> CompleteOrders(string? name)
         {
-            var model = await _administratorService.CompleteOrders();
+            ICollection<CompleteOrdersViewModel> model = await _administratorService.CompleteOrders(name);
             return View(model);
+        }
+
+        // Get Complete Orders (can be removed if not needed)
+        [HttpGet]
+        public IActionResult CompleteOrders()
+        {
+            return View(); 
         }
 
     }
